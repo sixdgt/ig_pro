@@ -1,0 +1,19 @@
+{
+    "name": "ig/ig_pro",
+    "description": "This is a web-based platforms to manage visitors and students who visits daily",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ig\\IgPro\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sandesh",
+            "email": "c4crypt@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
