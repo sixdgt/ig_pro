@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="../../public/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <title>IG Pro</title>
   </head>
   <body>

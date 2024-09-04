@@ -9,6 +9,12 @@ include __DIR__ . '/../layouts/header.php';
                     <h2 class="card-title">Student Application Form</h1>
                 </div>
                 <div class="card-body">
+                    <div id="loader" style="display:none;">
+                        <!-- Simple CSS spinner -->
+                        <div class="spinner" role="status">
+                            <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
                     <form action="#" method="POST" id="applicationForm">
                         <div class="row">
                             <div class="form-group mb-4 col">

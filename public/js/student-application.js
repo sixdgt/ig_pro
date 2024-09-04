@@ -24,6 +24,7 @@ $(document).ready(function(){
         });
     });
 
+
     $('#applicationForm').validate({
         rules: {
             first_name: {
@@ -230,20 +231,27 @@ $(document).ready(function(){
             formData.push({ name: 'interested_country', value: JSON.stringify(interestedCountry)});
             formData.push({ name: 'is_rule_accept', value: isTermAccepted });
             
+            // Show the loader
+            $('#loader').show();
+
             $.ajax({
                 url: '/create-std-application/', // Replace with your server endpoint
                 type: 'POST',
                 data: $.param(formData),
                 dataType: 'json',
                 success: function(response) {
-                    // Handle success response
-                    console.log(response);
-                    alert('Form submitted successfully!');
+                    $('#loader').hide();
+                    // Show a success message using Toastr
+                    toastr.success('Your operation was successful!', 'Success');
+
+                    // Redirect after a short delay (e.g., 3 seconds)
+                    setTimeout(function() {
+                        window.location.href = 'https://irongate.edu.np/'; // Replace with your target URL
+                    }, 3000); // 3000 milliseconds = 3 seconds
                 },
                 error: function(xhr, status, error) {
-                    console.log(error);
-                    // Handle error response
-                    alert('An error occurred. Please try again.');
+                    $('#loader').hide();
+                    toastr.error('There was an error submitting the data.', 'Error');
                 }
             });
         }
