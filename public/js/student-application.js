@@ -9,11 +9,8 @@ $(document).ready(function(){
             data: { email: email },
             dataType: 'json',
             success: function(response) {
-                 // Assuming response is a JSON string
-                var parsedResponse = JSON.parse(response);
-
                 // Access properties and handle response
-                if (parsedResponse.isEmailAvailable === "Yes") {
+                if (response.isEmailAvailable === "Yes") {
                     $('#email').removeClass('is-invalid').addClass('is-valid');
                     $('#email-error').text(''); // Clear any previous error messages
                 } else {
@@ -26,7 +23,6 @@ $(document).ready(function(){
             }
         });
     });
-
 
     $('#applicationForm').validate({
         rules: {
@@ -227,19 +223,25 @@ $(document).ready(function(){
                 interestedCountry.push($(this).val());
             });
 
+            let isTermAccepted = $('#term').is(':checked') ? 1 : 0;
+
             // Add checked values to form data
             var formData = $(form).serializeArray();
-            formData.push({ name: 'interested_country', value: JSON.stringify(interestedCountry) });
-
+            formData.push({ name: 'interested_country', value: JSON.stringify(interestedCountry)});
+            formData.push({ name: 'is_rule_accept', value: isTermAccepted });
+            
             $.ajax({
-                url: 'your-server-endpoint-url', // Replace with your server endpoint
+                url: '/create-std-application/', // Replace with your server endpoint
                 type: 'POST',
-                data: $(formData).serialize(),
+                data: $.param(formData),
+                dataType: 'json',
                 success: function(response) {
                     // Handle success response
+                    console.log(response);
                     alert('Form submitted successfully!');
                 },
                 error: function(xhr, status, error) {
+                    console.log(error);
                     // Handle error response
                     alert('An error occurred. Please try again.');
                 }

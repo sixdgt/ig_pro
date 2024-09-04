@@ -9,7 +9,7 @@ include __DIR__ . '/../layouts/header.php';
                     <h2 class="card-title">Student Application Form</h1>
                 </div>
                 <div class="card-body">
-                    <form action="#" method="post" id="applicationForm">
+                    <form action="#" method="POST" id="applicationForm">
                         <div class="row">
                             <div class="form-group mb-4 col">
                                 <label for="first_name">First Name:</label>
@@ -201,7 +201,7 @@ include __DIR__ . '/../layouts/header.php';
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary col-6">Submit</button>
+                            <input type="submit" class="btn btn-primary col-6">Submit</input>
                         </div>
                     </form>
                 </div>

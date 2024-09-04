@@ -22,7 +22,7 @@ if ($uri === '/') {
 } else if ($uri === '/check-email-availability/') {
     $std = new StudentController();
     $std->checkEmailAvailability();
-} else if ($uri === '/apply/') {
+} else if ($uri === '/create-std-application/') {
     $std = new StudentController();
-    $std->apply();
+    $std->createStudent();
 }

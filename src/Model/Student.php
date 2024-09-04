@@ -8,28 +8,17 @@ class Student {
     private $last_name;
     private $email;
     private $contact;
-    private $temp_state;
-    private $temp_city_village;
-    private $temp_tole;
-    private $permanent_state;
-    private $permanent_city_village;
-    private $permanent_tole;
+    private $temp_address;
+    private $permanent_address;
     private $guardian_name;
     private $relation;
     private $english_test_type;
     private $secured_score;
-    private $reading;
-    private $listening;
-    private $writing;
-    private $speaking;
-    private $academic_level_name;
-    private $institute_name;
-    private $university_name;
-    private $academic_score;
-    private $passed_year;
+    private $each_band_score;
+    private $academic_level;
     private $interested_country;
     private $about_ig;
-    private $term;
+    private $is_rule_accept;
 
     // Getters and Setters
     public function getId() {
@@ -80,52 +69,20 @@ class Student {
         $this->contact = $contact;
     }
 
-    public function getTempState() {
-        return $this->temp_state;
+    public function getTemporaryAddress() {
+        return json_decode($this->temp_address, true);
     }
 
-    public function setTempState($temp_state) {
-        $this->temp_state = $temp_state;
+    public function setTemporaryAddress($data) {
+        $this->temp_address = json_encode($data);
     }
 
-    public function getTempCityVillage() {
-        return $this->temp_city_village;
+    public function getPermanentAddress() {
+        return json_decode($this->permanent_address, true);
     }
 
-    public function setTempCityVillage($temp_city_village) {
-        $this->temp_city_village = $temp_city_village;
-    }
-
-    public function getTempTole() {
-        return $this->temp_tole;
-    }
-
-    public function setTempTole($temp_tole) {
-        $this->temp_tole = $temp_tole;
-    }
-
-    public function getPermanentState() {
-        return $this->permanent_state;
-    }
-
-    public function setPermanentState($permanent_state) {
-        $this->permanent_state = $permanent_state;
-    }
-
-    public function getPermanentCityVillage() {
-        return $this->permanent_city_village;
-    }
-
-    public function setPermanentCityVillage($permanent_city_village) {
-        $this->permanent_city_village = $permanent_city_village;
-    }
-
-    public function getPermanentTole() {
-        return $this->permanent_tole;
-    }
-
-    public function setPermanentTole($permanent_tole) {
-        $this->permanent_tole = $permanent_tole;
+    public function setPermanentAddress($data) {
+        $this->permanent_address = json_encode($data);
     }
 
     public function getGuardianName() {
@@ -160,84 +117,32 @@ class Student {
         $this->secured_score = $secured_score;
     }
 
-    public function getReading() {
-        return $this->reading;
+    public function getAcademicLevel()
+    {
+        return json_decode($this->academic_level, true);
     }
 
-    public function setReading($reading) {
-        $this->reading = $reading;
+    public function setAcademicLevel($data)
+    {
+        $this->academic_level = json_encode($data);
     }
 
-    public function getListening() {
-        return $this->listening;
+    public function getEachBandScore()
+    {
+        return json_decode($this->each_band_score, true);
     }
 
-    public function setListening($listening) {
-        $this->listening = $listening;
+    public function setEachBandScore($data)
+    {
+        $this->each_band_score = json_encode($data);
     }
-
-    public function getWriting() {
-        return $this->writing;
-    }
-
-    public function setWriting($writing) {
-        $this->writing = $writing;
-    }
-
-    public function getSpeaking() {
-        return $this->speaking;
-    }
-
-    public function setSpeaking($speaking) {
-        $this->speaking = $speaking;
-    }
-
-    public function getAcademicLevelName() {
-        return $this->academic_level_name;
-    }
-
-    public function setAcademicLevelName($academic_level_name) {
-        $this->academic_level_name = $academic_level_name;
-    }
-
-    public function getInstituteName() {
-        return $this->institute_name;
-    }
-
-    public function setInstituteName($institute_name) {
-        $this->institute_name = $institute_name;
-    }
-
-    public function getUniversityName() {
-        return $this->university_name;
-    }
-
-    public function setUniversityName($university_name) {
-        $this->university_name = $university_name;
-    }
-
-    public function getAcademicScore() {
-        return $this->academic_score;
-    }
-
-    public function setAcademicScore($academic_score) {
-        $this->academic_score = $academic_score;
-    }
-
-    public function getPassedYear() {
-        return $this->passed_year;
-    }
-
-    public function setPassedYear($passed_year) {
-        $this->passed_year = $passed_year;
-    }
-
+    
     public function getInterestedCountry() {
-        return $this->interested_country;
+        return json_decode($this->interested_country, true);
     }
 
-    public function setInterestedCountry($interested_country) {
-        $this->interested_country = $interested_country;
+    public function setInterestedCountry($data) {
+        $this->interested_country = json_encode($data);
     }
 
     public function getAboutIg() {
@@ -249,10 +154,10 @@ class Student {
     }
 
     public function getTerm() {
-        return $this->term;
+        return $this->is_rule_accept;
     }
 
-    public function setTerm($term) {
-        $this->term = $term;
+    public function setTerm($is_rule_accept) {
+        $this->is_rule_accept = $is_rule_accept;
     }
 }
